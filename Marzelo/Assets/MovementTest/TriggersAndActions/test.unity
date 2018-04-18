@@ -1103,9 +1103,9 @@ GameObject:
   - component: {fileID: 1271655760}
   - component: {fileID: 1271655759}
   - component: {fileID: 1271655758}
-  - component: {fileID: 1271655757}
   - component: {fileID: 1271655756}
   - component: {fileID: 1271655762}
+  - component: {fileID: 1271655757}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1139,8 +1139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6250e330bbc1b2c458a93ff7c438e95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  limit: {x: 9, y: 0, z: 5}
+  speed: 0
+  limit: {x: 0, y: 0, z: 0}
 --- !u!23 &1271655758
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1218,8 +1218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6250e330bbc1b2c458a93ff7c438e95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  limit: {x: 0, y: 0, z: 0}
+  speed: 5
+  limit: {x: 9, y: 0, z: 5}
 --- !u!1 &1343282859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,3 +1663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1817be1c334ff04893c8e1583b3ec2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 1090135902330136, guid: 2600d81d7897d144d8eaa4bb00dc7e51,
+    type: 2}
+  objectToFollow: {fileID: 1271655761}
+  spawnPossible: 1
+  ligthBox: {fileID: 0}
