@@ -6,8 +6,8 @@ public class DummyResponse : MonoBehaviour {
 
     public AudioClip hitSound;
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
 		
 	}
 	
@@ -15,11 +15,12 @@ public class DummyResponse : MonoBehaviour {
 	void Update () {
 		
 	}
-    void OnTrigerEnter (Collider other){
-        if (other.CompareTag("PlayerBullet")){
-            GetComponent<AudioSource>().PlayOneShot(hitSound);
-            //ShootingRangeControl
-            Destroy(other.gameObject);
+
+    void OnTriggerEnter (Collider other) {
+        if (other.CompareTag ("PlayerBullet")) {
+            GetComponent<AudioSource> ().PlayOneShot (hitSound);
+            ShootingRangeControl.score++;
+            Destroy (other.gameObject);
         }
     }
 }

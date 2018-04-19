@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HangmanScript : MonoBehaviour
-{
+public class HangmanScript : MonoBehaviour {
 
     public string palabra;
     string palabraEscondida;
@@ -19,64 +18,49 @@ public class HangmanScript : MonoBehaviour
 
     bool endHangman = false;
 
-    // Use this for initialization
-    void Start()
-    {
-        inputText.Select();
-        foreach (char c in palabra)
-        {
+	// Use this for initialization
+	void Start () {
+        inputText.Select ();
+        foreach (char c in palabra) {
             palabraEscondida += "*";
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!endHangman)
-        {
-            RunHangman();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        if (!endHangman) {
+            RunHangman ();
         }
-    }
+	}
 
-    void RunHangman()
-    {
-        if (outputText.text != palabraEscondida)
-        {
+    void RunHangman () {
+        if (outputText.text != palabraEscondida) {
             outputText.text = palabraEscondida;
         }
-        if (Input.GetKeyDown(KeyCode.Return) && !string.IsNullOrEmpty(inputText.text))
-        {
-            string letra = inputText.text.Substring(0, 1);
-            if (palabra.Contains(letra))
-            {
+        if (Input.GetKeyDown (KeyCode.Return) && !string.IsNullOrEmpty (inputText.text)) {
+            string letra = inputText.text.Substring (0, 1);
+            if (palabra.Contains (letra)) {
                 string palabraTemporal = "";
-                for (int i = 0; i < palabra.Length; i++)
-                {
-                    if (palabra[i] == letra[0])
-                    {
+                for (int i = 0; i < palabra.Length; i++) {
+                    if (palabra[i] == letra[0]) {
                         palabraTemporal += letra;
-                    }
-                    else
-                    {
+                    } else {
                         palabraTemporal += palabraEscondida[i];
                     }
                 }
                 palabraEscondida = palabraTemporal;
-                camSource.PlayOneShot(successSound);
-            }
-            else
-            {
-                camSource.PlayOneShot(failSound);
+                camSource.PlayOneShot (successSound);
+            } else {
+                camSource.PlayOneShot (failSound);
             }
             inputText.text = "";
-            inputText.Select();
-            inputText.ActivateInputField();
+            inputText.Select ();
+            inputText.ActivateInputField ();
         }
-        if (palabraEscondida == palabra)
-        {
-            camSource.PlayOneShot(winSound);
+        if (palabraEscondida == palabra) {
+            camSource.PlayOneShot (winSound);
             outputText.text = "FELICIDADES, GANASTE!";
-            inputText.gameObject.SetActive(false);
+            inputText.gameObject.SetActive (false);
             endHangman = true;
         }
     }
