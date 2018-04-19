@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Follower
   - PlayerBullet
+  - Follower
   layers:
   - Default
   - TransparentFX
